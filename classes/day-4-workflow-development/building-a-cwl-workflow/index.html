@@ -95,14 +95,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="building-a-common-workflow-language-cwl-workflow">Building A <a href="https://www.commonwl.org/">Common Workflow Language (CWL) Workflow</a></h1>
+                <h1 id="building-a-common-workflow-language-cwl-workflow">Building A <a href="https://www.commonwl.org/">Common Workflow Language (CWL) Workflow</a><a class="headerlink" href="#building-a-common-workflow-language-cwl-workflow" title="Permanent link">&para;</a></h1>
 <p>Here we now show how the same containers may be used in a CWL workflow.  </p>
 <p>If you are starting here and haven't Forked this repository into your own *<code>GitHub</code> Repository, please <a href="https://github.com/NIH-NICHD/Building-A-CWL-Script">Fork this repository</a></p>
 <p>If you have your personal <em><code>GitHub Fork</code></em> of this repository, then be sure to as changes may have been made.</p>
 <p>Now please <code>git clone</code> your personal fork of the repository for this lesson.</p>
 <pre><code class="language-bash">git clone https://github.com/NIH-NICHD/Building-A-CWL-Script.git
 </code></pre>
-<h2 id="showing-the-cwl-workflow-with-the-same-containers">Showing the CWL workflow with the same containers</h2>
+<h2 id="showing-the-cwl-workflow-with-the-same-containers">Showing the CWL workflow with the same containers<a class="headerlink" href="#showing-the-cwl-workflow-with-the-same-containers" title="Permanent link">&para;</a></h2>
 <p>Now Navigate to this class</p>
 <pre><code class="language-bash">cd Building-A-CWL-Script
 </code></pre>
@@ -184,7 +184,7 @@ outputs:
 <p>With the <em><code>inputs:</code></em> we see that we have <em><code>input_reads:</code></em> which asks us to input our reads, there is also a specification for an <em><code>outdir</code></em>.</p>
 <p>While I will not go into much more detail, I will emphasize that the <code>cwl</code> script is using the same containers as we did in the <code>nextflow</code> script.</p>
 <p>We can also inspect the <code>multiqc.cwl</code> file in that way or in the editor.</p>
-<h3 id="installing-cwltool">Installing cwltool</h3>
+<h3 id="installing-cwltool">Installing cwltool<a class="headerlink" href="#installing-cwltool" title="Permanent link">&para;</a></h3>
 <p>In the same way that we installed <code>nextflow</code>, we can install <code>cwltool</code>.</p>
 <p>To find the exact command, I typically google <code>anaconda search packages</code> and arrive here:</p>
 <p><img src="/../../img/AnacondaSearchPackages_cwltool1.png"></p>
@@ -197,7 +197,7 @@ outputs:
 <pre><code class="language-bash">which cwltool
 </code></pre>
 <p>Should tell us it is in the <em><code>eos</code></em> environment <em><code>binary</code></em> or <em><code>executable</code></em> subdirectory, <em><code>bin</code></em>, in my case that is here <em><code>/home/adeslat/miniconda3/envs/eos/bin/cwltool</code></em></p>
-<h3 id="executing-with-cwltool">Executing with cwltool</h3>
+<h3 id="executing-with-cwltool">Executing with cwltool<a class="headerlink" href="#executing-with-cwltool" title="Permanent link">&para;</a></h3>
 <p>Before we can execute, we need to let the tool know where the files are -- they are in fact on Zenodo </p>
 <pre><code class="language-bash">wget https://zenodo.org/record/7025773/files/test.20k_reads_1.fastq.gz
 wget https://zenodo.org/record/7025773/files/test.20k_reads_2.fastq.gz
@@ -230,13 +230,13 @@ wget https://zenodo.org/record/7025773/files/test.20k_reads_2.fastq.gz
 <p>If we look in the directory we now see the output from the <em><code>multiqc</code></em> run.</p>
 <p>We can inspect the output file in the same manner we inspected the <em><code>fastqc</code></em> output.</p>
 <p>Navigate to the appropriate directory in the <em><code>Cloud Editor</code></em> window, right click on the file <em><code>report.multiqc.html</code></em> and select <em><code>preview</code></em> and review the output, which is the aggregated report of the quality of both of the <em><code>fastq</code></em> files.</p>
-<h3 id="recap"><em>recap</em></h3>
+<h3 id="recap"><em>recap</em><a class="headerlink" href="#recap" title="Permanent link">&para;</a></h3>
 <p>We saw how to:</p>
 <ul>
 <li>install cwltool</li>
 <li>run and test fastqc and multiqc separately using the CWL language but calling the same exact docker image as we did with the Nextflow language.</li>
 </ul>
-<h2 id="stitching-together-the-two-processes-into-a-single-workflow">Stitching together the two processes into a single workflow</h2>
+<h2 id="stitching-together-the-two-processes-into-a-single-workflow">Stitching together the two processes into a single workflow<a class="headerlink" href="#stitching-together-the-two-processes-into-a-single-workflow" title="Permanent link">&para;</a></h2>
 <p>CWL does not use channels, but can read the output files from the first process as input to the second process, thereby permitting the stitching together of processes into a single workflow.   When we go to the CAVATICA platform, we will see how we can do this within the visual editor.</p>
 <p>These steps help us to test the processes separately before putting them together into a single workflow, adhering to our Elements of Style approach!</p>
 <p>Below is the full <code>cwl</code> script for a workflow with the two steps <code>fastqc</code> followed by <code>multiqc</code>.</p>
@@ -288,15 +288,15 @@ steps:
 </code></pre>
 <p>The <code>steps:</code> statement specifies which script to run.  It is the exact script we have previously tested and run, <code>cwl_tools/fastqc.cwl</code> followed by <code>cwl_tools/multiqc.cwl</code>.  To call this combined workflow, we call it with the input we gave the first process, <code>cwl_tools/fastqc.cwl</code>.  We do not need to specify the input to the second process, as it requires nothing more than the output of the first workflow, <code>cwl_tools/fastqc.cwl</code>.  </p>
 <p>But lets walk through some of the important steps and differences.</p>
-<h2 id="breaking-down-the-cwl-script">Breaking down the CWL Script.</h2>
+<h2 id="breaking-down-the-cwl-script">Breaking down the CWL Script.<a class="headerlink" href="#breaking-down-the-cwl-script" title="Permanent link">&para;</a></h2>
 <p>One can see that there are two steps <code>fastqc</code> and <code>multiqc</code>.</p>
 <p>The steps are easily stated because the tools are further expanded in each of the separate tool definitions.   </p>
-<h3 id="steps-fastqc">steps: fastqc</h3>
-<h4 id="run">run:</h4>
+<h3 id="steps-fastqc">steps: fastqc<a class="headerlink" href="#steps-fastqc" title="Permanent link">&para;</a></h3>
+<h4 id="run">run:<a class="headerlink" href="#run" title="Permanent link">&para;</a></h4>
 <p>The first statement in this section contains the key word <code>run:</code> after this statement is the redirection to the subdirectory and full name of the already tested tool <code>cwl_tools/fastqc.cwl</code>.</p>
-<h4 id="in">in:</h4>
+<h4 id="in">in:<a class="headerlink" href="#in" title="Permanent link">&para;</a></h4>
 <p>The next statement <code>in:</code> outlines where the input data files are coming from - and additional details.</p>
-<h5 id="input_reads">input_reads:</h5>
+<h5 id="input_reads">input_reads:<a class="headerlink" href="#input_reads" title="Permanent link">&para;</a></h5>
 <pre><code class="language-bash">   input_reads: input_reads
 ````
 redirects the machine and the reader to the default parameter definitions carried out at the beginning of the file.
@@ -308,7 +308,7 @@ inputs:
   input_reads: { type: 'File[]', doc: &quot;Input fastq files&quot; }
 </code></pre>
 <p>So we see that (and <code>input_reads</code> states the user should specify these files on the command line) which we do in our call.   Additionally the <code>type:</code> is <code>File[]</code>, indicates that the input accepts the files as an array (<code>[]</code> indicates an array) means that the parameter or variable accepts multiple types, so we would provide as input using the <code>--input_reads test.20k_reads_1.fastq.gz --input_reads test.20k_reads_2.fastq.gz</code></p>
-<h4 id="outdir-fastqc_outdir">outdir: fastqc_outdir</h4>
+<h4 id="outdir-fastqc_outdir">outdir: fastqc_outdir<a class="headerlink" href="#outdir-fastqc_outdir" title="Permanent link">&para;</a></h4>
 <p>the <code>outdir:</code> directive redirects us to <code>fastqc_outdir</code> which again we see defined at the top of the file, just after our <code>input_reads</code>.</p>
 <pre><code class="language-bash">inputs:
   input_reads: { type: 'File[]', doc: &quot;Input fastq files&quot; }
@@ -334,7 +334,7 @@ drwxr-xr-x 2 ad376 ad376    4096 Mar 31 17:12 results
       noextract: noextract
       cores: cores
       ram: ram</p>
-<h3 id="steps-multiqc">steps: multiqc</h3>
+<h3 id="steps-multiqc">steps: multiqc<a class="headerlink" href="#steps-multiqc" title="Permanent link">&para;</a></h3>
 <p>Multiqc takes as input the output of the <em><code>fastqc</code></em> step.</p>
 <p>The function step is called <em><code>multiqc</code></em></p>
 <p>And the command to run is specified with the <em><code>run: cwl_tools/multiqc.cwl</code></em>.</p>
@@ -346,7 +346,7 @@ drwxr-xr-x 2 ad376 ad376    4096 Mar 31 17:12 results
     in:
       fastqc_results: [fastqc/fastqc_results]
 </code></pre>
-<h4 id="recap_1">recap</h4>
+<h4 id="recap_1">recap<a class="headerlink" href="#recap_1" title="Permanent link">&para;</a></h4>
 <p>In this last step, we executed the combined workflow which was done quite simply and executed successfully after debugging the separate steps.   </p>
 <ul>
 <li>we saw that we did not need to specify other input than what was required by the first <code>cwl_tools/fastqc.cwl</code> workflow, because the second workflow, <code>cwl_tools/multiqc.cwl</code> required no additional input.</li>
@@ -354,7 +354,7 @@ drwxr-xr-x 2 ad376 ad376    4096 Mar 31 17:12 results
 <li>we broke down the workflow into its pieces and parts and understood how to change some of the default parameters.</li>
 <li>we followed the Elements of Style approach and used the same <code>Docker</code> image that was used in our <code>Nextflow</code> example.</li>
 </ul>
-<h2 id="return-to-todays-day-4-agenda">Return to today's (Day 4) Agenda</h2>
+<h2 id="return-to-todays-day-4-agenda">Return to today's (Day 4) Agenda<a class="headerlink" href="#return-to-todays-day-4-agenda" title="Permanent link">&para;</a></h2>
 <p><a href="../day-4-workflow-development/">Return to the Agenda</a></p>
               
             </div>

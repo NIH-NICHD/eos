@@ -95,21 +95,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="creating-a-conda-environment">Creating a <code>Conda</code> Environment</h1>
+                <h1 id="creating-a-conda-environment">Creating a <code>Conda</code> Environment<a class="headerlink" href="#creating-a-conda-environment" title="Permanent link">&para;</a></h1>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Conda_logo.svg" width=500></p>
-<h2 id="what-is-conda">What is <a href="https://docs.conda.io/en/latest/">conda</a></h2>
+<h2 id="what-is-conda">What is <a href="https://docs.conda.io/en/latest/">conda</a><a class="headerlink" href="#what-is-conda" title="Permanent link">&para;</a></h2>
 <p>Conda is an application that we use to control our environment and manage our package installations.</p>
 <p>We will work today within a terminal window and the first thing I like to do is to make a clean environment window.   This ensures that all of the assumptions we made about our environment are clear and explicit.  Without this you may inadvertantly introduce dependicies that may complicate your building of your container and/or stitching together your workflow.</p>
 <p>When we build our container, we begin many of times using the conda environment made by the group that builds conda as a basis.  This then does give us the application conda within our environment for our use like docker.</p>
 <p>Today we will be using a terminal window within a free resource, <a href="https://shell.cloud.google.com/">Google Shell</a></p>
 <p>We will walk through those steps today with our simple example.   </p>
-<h2 id="anaconda-search-packages"><a href="https://anaconda.org/">Anaconda</a> Search Packages</h2>
+<h2 id="anaconda-search-packages"><a href="https://anaconda.org/">Anaconda</a> Search Packages<a class="headerlink" href="#anaconda-search-packages" title="Permanent link">&para;</a></h2>
 <p><img src="/../../img/AnacondaMainWindow1.png"></p>
 <p>I regularly type this in my browser window to find the packages I need to install.</p>
 <p>Anaconda environment is growing by leaps and bounds and there are more things that can be done there that I have yet to explore.</p>
 <p>In addition to well vetted packages that can be installed, this large community resource provides tutorials, data science instructions as well as whole environments where you can work, explore and learn.</p>
 <p>For example, today we already showed you how to run a jupyterlab notebook, but you want to know more.  Their site offers instruction on <a href="https://anaconda.org/ijstokes/open-data-science-with-anaconda/notebook">Jupyterlab basics</a> for you to explore.</p>
-<h2 id="logging-into-google-shell">Logging into Google Shell</h2>
+<h2 id="logging-into-google-shell">Logging into Google Shell<a class="headerlink" href="#logging-into-google-shell" title="Permanent link">&para;</a></h2>
 <p>For this part of our demo/hands on, we will be using google shell.  </p>
 <p>Navigate please to <a href="https://shell.cloud.google.com/">Google Shell</a></p>
 <p>It will ask you to login, please follow the prompts and do so.</p>
@@ -117,7 +117,7 @@
 <p><img src="/../../img/GoogleCloudShell1.png"></p>
 <p>We have an editor as well as a prompt.</p>
 <p>If you have items in your Google Shell, you may need to clean up a bit.  There is not much space in this <em><code>free ephemeral instance</code></em>.  </p>
-<h3 id="cleaning-up-your-space">Cleaning up your space</h3>
+<h3 id="cleaning-up-your-space">Cleaning up your space<a class="headerlink" href="#cleaning-up-your-space" title="Permanent link">&para;</a></h3>
 <p>If you have items in your directory, lets clean up!  So we have enough room for the next few lessons.   Let's see what is there.</p>
 <p>For a shell to list the contents of a directory, you type:</p>
 <pre><code class="language-bash">ls -l
@@ -127,7 +127,7 @@
 <pre><code class="language-bash">ls -la
 </code></pre>
 <p>Again, look at <em><code>Explain Shell</code></em> to explain the meaning of the command. <a href="https://explainshell.com/explain?cmd=ls+-la">Explain Shell <code>ls -la</code></a></p>
-<h2 id="installing-conda">Installing conda</h2>
+<h2 id="installing-conda">Installing conda<a class="headerlink" href="#installing-conda" title="Permanent link">&para;</a></h2>
 <p>We need to get the installation package for conda.  We get this package from continuum analytics, we will be installing <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>.  Miniconda is the minimal installer and all we need.</p>
 <p>Navigating to that location you will see details here:</p>
 <p><img src="/../../img/AnacondaMiniconda2.png"></p>
@@ -210,7 +210,7 @@ To set your Cloud Platform project in this session use “gcloud config set proj
 <p>returns:</p>
 <pre><code class="language-bash">/home/ad376/miniconda3/condabin/conda
 </code></pre>
-<h2 id="creating-a-clean-environment">Creating a clean environment</h2>
+<h2 id="creating-a-clean-environment">Creating a clean environment<a class="headerlink" href="#creating-a-clean-environment" title="Permanent link">&para;</a></h2>
 <p>Now that we have <code>conda</code> we can create an environment that will keep our workspace clean.  We can name it whatever we would like, since this is the <code>Elements of Style</code> course, I choose to name my environment <code>eos</code> for short.</p>
 <p>We create an environment as follows:</p>
 <pre><code class="language-bash">conda create -n eos -y
@@ -237,7 +237,7 @@ To set your Cloud Platform project in this session use “gcloud config set proj
 <p>You can list all your environments list all your environments with the following command:</p>
 <pre><code class="language-bash">conda env list
 </code></pre>
-<h2 id="recap">Recap</h2>
+<h2 id="recap">Recap<a class="headerlink" href="#recap" title="Permanent link">&para;</a></h2>
 <p>We have learned in this lesson</p>
 <ul>
 <li>We started a <code>bash shell environment</code> using our browser and the <a href="https://shell.cloud.google.com">shell</a></li>
@@ -248,7 +248,7 @@ To set your Cloud Platform project in this session use “gcloud config set proj
 <li>We used <code>conda</code> to create a new clean environment.</li>
 </ul>
 <p>We now move on to build Docker images which we will use in a workflow.</p>
-<h2 id="return-to-the-agenda"><a href="../day-3-containerization/">Return to the Agenda</a></h2>
+<h2 id="return-to-the-agenda"><a href="../day-3-containerization/">Return to the Agenda</a><a class="headerlink" href="#return-to-the-agenda" title="Permanent link">&para;</a></h2>
               
             </div>
           </div><footer>
