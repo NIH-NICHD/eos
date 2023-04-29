@@ -42,7 +42,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="" href="../../../">Home</a>
+                <li class="toctree-l1"><a class="" href="../../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Agenda</span></p>
@@ -95,7 +95,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="authenticating-with-cavatica">Authenticating with CAVATICA<a class="headerlink" href="#authenticating-with-cavatica" title="Permanent link">&para;</a></h2>
+                <h2 id="authenticating-with-cavatica">Authenticating with CAVATICA</h2>
 <p>You can authenticate in two ways, you can use a <em><code>credential</code></em> file that the <em><code>CAVATICA</code></em> application recognizes or you can do command line login.</p>
 <p>Both methods use the <em><code>CAVATICA</code></em>'s developer's authentication token.</p>
 <p>If you navigate to <em><code>CAVATICA</code></em> to your <em><code>project</code></em>, for me it was the <em><code>elements-of-style</code></em> project.
@@ -106,12 +106,12 @@
 <p><img src="/../../img/CAVATICAFastqcDockerDetail.png"></p>
 <p>Further, you can see, that <em><code>CAVATICA</code></em> has conveniently placed the necessary commands to facilitate <em><code>login</code></em>, <em><code>push</code></em> and <em><code>pull</code></em>.</p>
 <p><img src="/../../img/CAVATICAFastqcDockerCommands.png"></p>
-<h3 id="authenticate-with-command-line-login">Authenticate with command line login<a class="headerlink" href="#authenticate-with-command-line-login" title="Permanent link">&para;</a></h3>
+<h3 id="authenticate-with-command-line-login">Authenticate with command line login</h3>
 <p>Let's copy the <em><code>login</code></em> command and paste it in our <em><code>google shell window</code></em>.</p>
 <pre><code class="language-bash">docker login pgc-images.sbgenomics.com -u &lt;USERNAME&gt; -p &lt;YOUR-AUTH-TOKEN&gt;
 </code></pre>
 <p>Replace the <em><code>&lt;USERNAME&gt;</code></em> with your <em><code>username</code></em> and the <em><code>&lt;YOUR-AUTH-TOKEN&gt;</code></em> with your <em><code>authentication token</code></em>.</p>
-<h3 id="authenticate-with-a-cavatica-credential-file">Authenticate with a CAVATICA credential file.<a class="headerlink" href="#authenticate-with-a-cavatica-credential-file" title="Permanent link">&para;</a></h3>
+<h3 id="authenticate-with-a-cavatica-credential-file">Authenticate with a CAVATICA credential file.</h3>
 <p>Alternatively you create your credentials in a credential file.</p>
 <p>To do this at the <em><code>root</code></em> directory, you can type the command <em><code>push ~</code></em> to navigate to the root directory.</p>
 <p>A fun pair of commands for navigation in a shell are <em><code>pushd</code></em> and <em><code>popd</code></em>.  <a href="https://en.wikipedia.org/wiki/Pushd_and_popd">Wikipedia actually has a nice page to explain these two commands for faster navigation</a>.  Think of pushing your commands on a stack and popping them off to return where you are.</p>

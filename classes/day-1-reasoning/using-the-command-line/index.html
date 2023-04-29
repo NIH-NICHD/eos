@@ -42,7 +42,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="" href="../../../">Home</a>
+                <li class="toctree-l1"><a class="" href="../../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Agenda</span></p>
@@ -95,7 +95,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="using-the-command-line">Using the command line<a class="headerlink" href="#using-the-command-line" title="Permanent link">&para;</a></h1>
+                <h1 id="using-the-command-line">Using the command line</h1>
 <p>Because I want to make this course accessible to researchers/clinicians who may or may not have had previous command line experience, I recently asked chatGPT the following question:</p>
 <p><em>how would you explain "what is a terminal window" and "what is a command line" to someone naive to these terms?</em></p>
 <p><strong>ChatGPT</strong> had the following response</p>
@@ -107,16 +107,16 @@
 <p>However, there are many resources available online for learning how to use the command line, and many people find it to be a valuable skill to have.</p>
 </blockquote>
 <p>We begin by using a tool <a href="https://explainshell.com/">ExlainShell</a></p>
-<h2 id="utilising-the-explainshell-interactive-command-explorer">Utilising the ExplainShell interactive command explorer<a class="headerlink" href="#utilising-the-explainshell-interactive-command-explorer" title="Permanent link">&para;</a></h2>
+<h2 id="utilising-the-explainshell-interactive-command-explorer">Utilising the ExplainShell interactive command explorer</h2>
 <p>There is an excellent resource that provides an interactive command explainer that can be accessed at <a href="https://explainshell.com/">ExplainShell</a>
 Feel free to use and paste the following commands from the tutorial to see an explanation of the command based on the official commands documentation.</p>
-<h2 id="1-list-files-in-the-current-folder">1. List files in the current folder<a class="headerlink" href="#1-list-files-in-the-current-folder" title="Permanent link">&para;</a></h2>
+<h2 id="1-list-files-in-the-current-folder">1. List files in the current folder</h2>
 <p>Directory is used interchangeably with the term folder.</p>
 <pre><code class="language-bash">ls -l
 </code></pre>
 <p>Inside <a href="https://explainshell.com/">ExplainShell</a> you will see the following explanation:</p>
 <p><img src="/../../img/ExplainShell_ls_l.png" width=500></p>
-<h2 id="2-inspect-your-current-folder-location-in-the-file-system">2. Inspect your current folder location in the file system<a class="headerlink" href="#2-inspect-your-current-folder-location-in-the-file-system" title="Permanent link">&para;</a></h2>
+<h2 id="2-inspect-your-current-folder-location-in-the-file-system">2. Inspect your current folder location in the file system</h2>
 <p>To see in which folder you are currently in, use the <strong><code>pwd</code></strong> command, short for <strong><code>print working directory</code></strong>. This will return the absolut path to the location you currently stand.</p>
 <blockquote>
 <p>NOTE: 
@@ -127,7 +127,7 @@ What is an <em>absolute</em> path? what is a <em>relative</em> path? </p>
 <pre><code class="language-bash">pwd
 </code></pre>
 <p><img src="/../../img/ExplainShellpwd.png" width=500></p>
-<h2 id="3-copy-a-file">3. Copy a file<a class="headerlink" href="#3-copy-a-file" title="Permanent link">&para;</a></h2>
+<h2 id="3-copy-a-file">3. Copy a file</h2>
 <p>Now let's go to a terminal window inside of the JupyterLab notebook you have just started up.</p>
 <p>Select terminal</p>
 <p><img src="/../../img/JupyterLabNotebookSelectTerminalWindow.png" width=500></p>
@@ -147,14 +147,14 @@ What is an <em>absolute</em> path? what is a <em>relative</em> path? </p>
 <p>Now let's inspect if the file was created, by listing files in the directory with the <code>ls -l</code> command. We are expecting to view the file with name <code>duplicated_README.md</code> in the listed files and folders</p>
 <pre><code class="language-bash">ls -l
 </code></pre>
-<h1 id="4-deleting-a-file">4. Deleting a file<a class="headerlink" href="#4-deleting-a-file" title="Permanent link">&para;</a></h1>
+<h1 id="4-deleting-a-file">4. Deleting a file</h1>
 <p>To delete (remove) a file we can use the command <code>rm name_of_folder</code>. Let's delete the duplicate README.md file named <code>duplicated_README.md</code></p>
 <pre><code class="language-bash">rm duplicated_README.md
 </code></pre>
 <p>Now let's inspect if the file was created, by listing files in the directory with the <code>ls -l</code> command. We are expecting to <strong>not</strong> view the file with name <code>duplicated_README.md</code> as we just <strong>deleted</strong> it in the listed files and folders</p>
 <pre><code class="language-bash">ls -l
 </code></pre>
-<h2 id="5-create-a-new-directory-folder">5. Create a new directory (folder)<a class="headerlink" href="#5-create-a-new-directory-folder" title="Permanent link">&para;</a></h2>
+<h2 id="5-create-a-new-directory-folder">5. Create a new directory (folder)</h2>
 <p>To create a new folder if that folder doesn't exist, we can use the command <code>mkdir name_of_folder</code>. Let's create a folder named <code>new_folder</code></p>
 <pre><code class="language-bash">mkdir new_folder
 </code></pre>
@@ -163,14 +163,14 @@ What is an <em>absolute</em> path? what is a <em>relative</em> path? </p>
 <pre><code class="language-bash">ls -l
 </code></pre>
 <p><img src="/../../img/JupyterLabNotebookNewFolderAndContent.png" width=500></p>
-<h2 id="6-delete-a-folder">6. Delete a folder<a class="headerlink" href="#6-delete-a-folder" title="Permanent link">&para;</a></h2>
+<h2 id="6-delete-a-folder">6. Delete a folder</h2>
 <p>We can delete a folder using the <code>rm -r</code> command:</p>
 <pre><code class="language-bash">rm -r new_folder
 </code></pre>
 <p>Let's inspect that the folder is indeed deleted:</p>
 <pre><code class="language-bash">ls -l
 </code></pre>
-<h2 id="7-downloading-a-file-using-a-link">7. Downloading a file using a link<a class="headerlink" href="#7-downloading-a-file-using-a-link" title="Permanent link">&para;</a></h2>
+<h2 id="7-downloading-a-file-using-a-link">7. Downloading a file using a link</h2>
 <p>We can retrieve a file using a public link. For example, we have uploaded in a public ZENODO record for this course an example file. The link for the file is: https://zenodo.org/record/4302133/files/deseq2_5k.csv</p>
 <p>Details of this file, which is a selected subset of the results of running DESeq on RNA-seq files, only those that were with an appropriate p-value (&lt; 0.05) and above the 1.5 fold difference were put into the matrix.   </p>
 <p>https://zenodo.org/record/4302133.   You can see the version history, this file was created by a colleague at Lifebit, for the first time this course was offered in 2019 at the Jackson Laboratory.</p>
@@ -179,7 +179,7 @@ What is an <em>absolute</em> path? what is a <em>relative</em> path? </p>
 wget https://zenodo.org/record/4302133/files/deseq2_5k.csv
 </code></pre>
 <p>So please copy this command and paste it in the terminal window and press return - in preparation for the next section of todays class.  Reading data and plotting a volcano plot.</p>
-<h2 id="return-to-day-1">Return to Day 1<a class="headerlink" href="#return-to-day-1" title="Permanent link">&para;</a></h2>
+<h2 id="return-to-day-1">Return to Day 1</h2>
 <p><a href="../day-1-reasoning/">Return to today's agenda</a></p>
               
             </div>

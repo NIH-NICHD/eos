@@ -42,7 +42,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="" href="../../../">Home</a>
+                <li class="toctree-l1"><a class="" href="../../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Agenda</span></p>
@@ -95,7 +95,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="preamble-to-building-workflows-using-containers">Preamble to building workflows using containers<a class="headerlink" href="#preamble-to-building-workflows-using-containers" title="Permanent link">&para;</a></h1>
+                <h1 id="preamble-to-building-workflows-using-containers">Preamble to building workflows using containers</h1>
 <p>In this session, we will use the two Docker images we built in the previous sections and we will how to put these together into a single workflow using the Nextflow workflow language.  Later, we will learn out to put these two Docker images into a single workflow using the CWL or Common Workflow Language. </p>
 <p>We will:</p>
 <ul>
@@ -107,13 +107,13 @@
 <li>Push our Docker images to our own personal repository on Cavatica</li>
 <li>Use our own Docker images in the Nextflow and CWL scripts we write.</li>
 </ul>
-<h2 id="login-to-google-shell-cloud">Login to <a href="https://shell.cloud.google.com/">Google shell cloud</a><a class="headerlink" href="#login-to-google-shell-cloud" title="Permanent link">&para;</a></h2>
+<h2 id="login-to-google-shell-cloud">Login to <a href="https://shell.cloud.google.com/">Google shell cloud</a></h2>
 <p>Please proceed to login to your google shell.  If you did not work with us yesterday, please return to the <a href="https://github.com/NIH-NICHD/Kids-First-Elements-of-Style-Workflow-Creation-Maintenance/blob/main/classes/Building-Dockerfiles/README.md#building-dockerfiles">previous lesson</a> to build your <em><code>fastqc-docker</code></em> and <em><code>multiqc-docker</code></em> images.</p>
 <p>When it comes up, type:</p>
 <pre><code class="language-bash">docker images
 </code></pre>
 <p>You will see there are no images from yesterday.   If you recall, I mentioned that these were ephemeral instances, so the new machine that has just been spun up, though it maintains your file structure, does not have your image anymore.</p>
-<h2 id="build-your-fastqc-docker-image">Build your Fastqc Docker Image<a class="headerlink" href="#build-your-fastqc-docker-image" title="Permanent link">&para;</a></h2>
+<h2 id="build-your-fastqc-docker-image">Build your Fastqc Docker Image</h2>
 <p>Lets first build Fastqc Docker Image.</p>
 <p>If you recall, yesterday, I said there are only <em><code>3</code></em> steps in building a Docker Image.</p>
 <ol>
@@ -133,7 +133,7 @@
 </code></pre>
 <p>We do not need to authenticate, but if there were changes, we would proceed as we did yesterday to set up our <em><code>user.name</code></em> and <em><code>user.email</code></em>.   But we do not need to do this at the moment.</p>
 <p>Now let us build the Docker image</p>
-<h3 id="build-fastqc">Build Fastqc<a class="headerlink" href="#build-fastqc" title="Permanent link">&para;</a></h3>
+<h3 id="build-fastqc">Build Fastqc</h3>
 <pre><code class="language-bash">docker build -t fastqc .
 </code></pre>
 <p>This tags the image with the tag fastqc, however we actually have to tag it with a tagname that will work on the CAVATICA Registry. <br />
@@ -147,7 +147,7 @@ REPOSITORY               TAG       IMAGE ID       CREATED         SIZE
 fastqc                   latest    7bcdb3be3afc   6 minutes ago   1.07GB
 continuumio/miniconda3   latest    ce7d119281a1   2 months ago    403MB
 </code></pre>
-<h3 id="tag-fastqc">TAG Fastqc<a class="headerlink" href="#tag-fastqc" title="Permanent link">&para;</a></h3>
+<h3 id="tag-fastqc">TAG Fastqc</h3>
 <p>Take note of the <em><code>IMAGE ID</code></em>, that is what we will use to tag our image for pushing to CAVATICA.</p>
 <p>I did a local install of the fastqc to find out the version we have:</p>
 <pre><code class="language-bash">conda install -c fastqc -y
@@ -173,11 +173,11 @@ Usage:  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 </code></pre>
 <p>Where the first item after the word tag is the IMAGE ID - aka the SOURCE_IMAGE
 The second is the TARGET_IMAGE</p>
-<h3 id="push-fastqc">PUSH Fastqc<a class="headerlink" href="#push-fastqc" title="Permanent link">&para;</a></h3>
+<h3 id="push-fastqc">PUSH Fastqc</h3>
 <p>Okay, almost there.  We have built and we have tagged, now we want to push our image to our Docker Image Repository.</p>
 <p>To do that we need to authenticate.  </p>
 <p>To authenticate we need a developers token.</p>
-<h2 id="login-to-cavatica-and-generate-authentication-token">Login to CAVATICA and Generate Authentication Token<a class="headerlink" href="#login-to-cavatica-and-generate-authentication-token" title="Permanent link">&para;</a></h2>
+<h2 id="login-to-cavatica-and-generate-authentication-token">Login to CAVATICA and Generate Authentication Token</h2>
 <p>Navigate to the Developers Tab
 <img src="/../../img/CAVATICADevelopersRegistryToken.png" ></p>
 <p>Select <em><code>Authentication Token</code></em> and Press <em><code>Generate Authentication Token</code></em></p>
@@ -203,7 +203,7 @@ v0.11.9: digest: sha256:400e075f2ba7c94f6982caa3a43bd90d1857ecde457bf4a26a4ab9b9
 <p>Now we can inspect our repository on CAVATICA and we see:
 <img src="/../../img/CAVATICADevelopersRepositoryFastqc.png" ></p>
 <p>Now we actually can properly build and tag from the getgo our other image, for multiqc.</p>
-<h3 id="build-and-tag-multiqc">Build and Tag Multiqc<a class="headerlink" href="#build-and-tag-multiqc" title="Permanent link">&para;</a></h3>
+<h3 id="build-and-tag-multiqc">Build and Tag Multiqc</h3>
 <p>Navigate to the multiqc-docker directory</p>
 <pre><code class="language-bash">cd ../multiqc-docker
 </code></pre>
@@ -211,7 +211,7 @@ v0.11.9: digest: sha256:400e075f2ba7c94f6982caa3a43bd90d1857ecde457bf4a26a4ab9b9
 <pre><code class="language-bash">docker build -t pgc-images.sbgenomics.com/adeslat/multiqc:v1.0dev0 .
 </code></pre>
 <p>Because we are already authenticated, we can simply push.</p>
-<h3 id="push-multiqc">Push Multiqc<a class="headerlink" href="#push-multiqc" title="Permanent link">&para;</a></h3>
+<h3 id="push-multiqc">Push Multiqc</h3>
 <pre><code class="language-bash">docker push pgc-images.sbgenomics.com/adeslat/multiqc:v1.0dev0
 </code></pre>
 <p>And now when we inspect our repository, we have:

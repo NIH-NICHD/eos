@@ -42,7 +42,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="" href="../../../">Home</a>
+                <li class="toctree-l1"><a class="" href="../../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Agenda</span></p>
@@ -95,7 +95,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="building-a-nextflow-workflow">Building A Nextflow Workflow<a class="headerlink" href="#building-a-nextflow-workflow" title="Permanent link">&para;</a></h2>
+                <h2 id="building-a-nextflow-workflow">Building A Nextflow Workflow</h2>
 <p>If you have arrived here from the front page and have not built your <em><code>fastqc-docker</code></em> and <em><code>multiqc-docker</code></em> containers, please proceed to the <a href="../preamble/">preamble to building a Nextflow Workflow</a></p>
 <p><strong>Main outcome:</strong> </p>
 <p>During the first session you will build a <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a> &amp; <a href="https://multiqc.info/">MultiQC</a> pipeline to learn the basics of Nextflow including:</p>
@@ -106,7 +106,7 @@
 <li><a href="https://www.nextflow.io/docs/latest/operator.html">Operators</a></li>
 <li><a href="https://www.nextflow.io/docs/latest/config.html">Configuration</a></li>
 </ul>
-<h2 id="in-the-google-shell">In the Google Shell<a class="headerlink" href="#in-the-google-shell" title="Permanent link">&para;</a></h2>
+<h2 id="in-the-google-shell">In the Google Shell</h2>
 <p>We are going to continue use <a href="https://shell.cloud.google.com/">Google shell Cloud</a> to walk through the building of a Nextflow script and in the next session building the containers we used to do so.</p>
 <p>Inside the shell we have the following:</p>
 <ul>
@@ -123,9 +123,9 @@
 <p>The standard workflow language for the Common Workflow Language (CWL) <code>cwltool</code> can be installed</p>
 </li>
 </ul>
-<h3 id="what-is-docker">What is <a href="https://www.docker.com/">Docker</a> <img src="/../../img/Moby-Logo.png" width=50 align=left>?<a class="headerlink" href="#what-is-docker" title="Permanent link">&para;</a></h3>
+<h3 id="what-is-docker">What is <a href="https://www.docker.com/">Docker</a> <img src="/../../img/Moby-Logo.png" width=50 align=left>?</h3>
 <p>Just to recap a bit. Docker is the application we use to build our containerized images.   It turns our code into an image that can be run interactively or be placed upon a virtual machine that we spin up on CAVATICA as part of a workflow.   The logo that is associated with <code>Docker</code> is a whale but looks like a containership.   Containers revolutionized the shipping industry by creating a uniform entity that could permits disparate items to be packaged in the same manner allowing devices that do not know what they contain to carry those items.   Much in the same way that <code>packets</code> revolutionized communication with the internet.  This is why we concern ourselves with containers. </p>
-<h3 id="install-nextflow">Install Nextflow<a class="headerlink" href="#install-nextflow" title="Permanent link">&para;</a></h3>
+<h3 id="install-nextflow">Install Nextflow</h3>
 <p>Now we can install <code>nextflow</code> package.   To get the installation command, we again search <code>Anaconda</code> for the package details.   We see that this is a pretty popular package, there have been at the time of this writing, that this has been downloaded 162,780 times and that the last upload was 2 months and 6 days ago and we have the GitHub location of the software. </p>
 <p>Importantly, we now see how to install the <code>nextflow</code> application.</p>
 <pre><code class="language-bash">conda install -c bioconda nextflow
@@ -153,7 +153,7 @@ Proceed ([y]/n)?
 <pre><code class="language-bash">(eos) adeslat@cloudshell:~$ which nextflow
 /home/adeslat/miniconda3/envs/eos/bin/nextflow
 </code></pre>
-<h3 id="a-getting-course-material">a) Getting Course material.<a class="headerlink" href="#a-getting-course-material" title="Permanent link">&para;</a></h3>
+<h3 id="a-getting-course-material">a) Getting Course material.</h3>
 <p>Let's use your forked version of the repository.</p>
 <p>First lets make sure it is up-to-date.</p>
 <p>To do that do the following.</p>
@@ -166,7 +166,7 @@ Proceed ([y]/n)?
 <p>And clone</p>
 <pre><code class="language-bash">git clone https://github.com/NIH-NICHD/Building-A-Nextflow-Script.git
 </code></pre>
-<h3 id="b-parameters-otherwise-known-as-inputs">b) Parameters (otherwise known as inputs)<a class="headerlink" href="#b-parameters-otherwise-known-as-inputs" title="Permanent link">&para;</a></h3>
+<h3 id="b-parameters-otherwise-known-as-inputs">b) Parameters (otherwise known as inputs)</h3>
 <p>Now that we have Nextflow &amp; Docker installed we're ready to run our first script and learn how we bring in data into a file.</p>
 <p>Let's open the file <code>params_reads.nf</code></p>
 <p>You see the following content:</p>
@@ -185,7 +185,7 @@ println &quot;My reads: ${params.reads}&quot;
 <pre><code class="language-bash">nextflow run params_reads.nf --reads testdata/test.20k_reads_1.fastq.gz
 </code></pre>
 <p>The run returns the name of our file.</p>
-<h3 id="c-processes-inputs-outputs-scripts">c) Processes (inputs, outputs &amp; scripts)<a class="headerlink" href="#c-processes-inputs-outputs-scripts" title="Permanent link">&para;</a></h3>
+<h3 id="c-processes-inputs-outputs-scripts">c) Processes (inputs, outputs &amp; scripts)</h3>
 <p>Well, we have run our first <code>nextflow</code> workflow, congratulations!.</p>
 <p>Nextflow allows the execution of any command or user script by using a <code>process</code> definition. </p>
 <p>A process is defined by providing three main declarations: 
@@ -223,7 +223,7 @@ process fastqc {
 </code></pre>
 <p>We are using a docker image I previously had pushed to the Seven Bridges Image repository -- in the next session I will walk through how that is done.</p>
 <p>By running Nextflow using the <code>with-docker</code> flag we can specify a Docker container to execute this command in. This is beneficial because it means we do not need to have <code>fastqc</code> installed locally on our laptop. We just need to specify a Docker container that has <code>fastqc</code> installed.</p>
-<h3 id="d-channels">d) Channels<a class="headerlink" href="#d-channels" title="Permanent link">&para;</a></h3>
+<h3 id="d-channels">d) Channels</h3>
 <p>Channels are the preferred method of transferring data in Nextflow &amp; can connect two processes or operators.</p>
 <!--
 There are two types of channels:
@@ -258,7 +258,7 @@ process fastqc {
 <p>To run the pipeline:</p>
 <pre><code class="language-bash">nextflow run fastqc.nf --reads &quot;testdata/test.20k_reads_{1,2}.fastq.gz&quot; -with-docker pgc-images.sbgenomics.com/adeslat/fastqc:v0.11.9
 </code></pre>
-<h3 id="e-operators">e) Operators<a class="headerlink" href="#e-operators" title="Permanent link">&para;</a></h3>
+<h3 id="e-operators">e) Operators</h3>
 <p>Operators are methods that allow you to manipulate &amp; connect channels.</p>
 <p>Here we will add a new process <code>multiqc</code> &amp; use the <a href="https://www.nextflow.io/docs/latest/operator.html#collect"><code>.collect()</code></a> operator</p>
 <p>Add the multiqc process after <code>fastqc</code>:</p>
@@ -304,7 +304,7 @@ process multiqc {
 <p>The pipeline can be run with the following:</p>
 <pre><code class="language-bash">nextflow run fastqc_multiqc_wf.nf --reads &quot;testdata/test.20k_reads_{1,2}.fastq.gz&quot; -with-docker pgc-images.sbgenomics.com/deslattesmaysa2/fastqc:v1.0
 </code></pre>
-<h3 id="f-configuration">f) Configuration<a class="headerlink" href="#f-configuration" title="Permanent link">&para;</a></h3>
+<h3 id="f-configuration">f) Configuration</h3>
 <p>Configuration, such as parameters, containers &amp; resources eg memory can be set in <code>config</code> files such as <a href="https://www.nextflow.io/docs/latest/config.html#configuration-file"><code>nextflow.config</code></a>.</p>
 <p>For example our <code>nextflow.config</code> file might look like this:</p>
 <pre><code>docker.enabled = true
@@ -327,7 +327,7 @@ process {
 <p>The pipeline can now be run with the following:</p>
 <pre><code class="language-bash">nextflow run fastqc_multiqc_wf.nf --reads &quot;testdata/test.20k_reads_{1,2}.fastq.gz&quot;
 </code></pre>
-<h2 id="proceed-to-the-next-lesson">Proceed to the next lesson<a class="headerlink" href="#proceed-to-the-next-lesson" title="Permanent link">&para;</a></h2>
+<h2 id="proceed-to-the-next-lesson">Proceed to the next lesson</h2>
 <p><a href="../day-4-workflow-development/">Return to the Agenda</a></p>
               
             </div>
